@@ -91,4 +91,7 @@ nav:
     - Database Manager: advanced/database-manager.md
   - Contributing:
     - Development Setup: contributing/development.md
+    - Building Documentation: contributing/building-docs.md
     - Testing: contributing/testing.md
+  - Examples:
+    - Git Skill: examples/example-git-skill/SKILL.md

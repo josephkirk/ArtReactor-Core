@@ -211,4 +211,4 @@ mkdocs gh-deploy
 - [MkDocs Documentation](https://www.mkdocs.org/)
 - [Material Theme Docs](https://squidfunk.github.io/mkdocs-material/)
 - [Mermaid Diagram Syntax](https://mermaid.js.org/)
-- [Contributing Guide](../CONTRIBUTING.md)
+- [Contributing Guide](development.md)
