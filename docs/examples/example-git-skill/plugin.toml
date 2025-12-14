@@ -1,0 +1,9 @@
+name = "example-git-skill"
+version = "1.0.0"
+type = "router"
+description = "Example plugin demonstrating Agent Skills with Git operations"
+dependencies = []
+
+[timing]
+phase = "default"
+priority = 50
