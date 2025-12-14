@@ -1,0 +1,44 @@
+[project]
+name = "ArtReactor"
+version = "0.1.0"
+description = "API Central Hub"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic-ai>=1.32.0",
+    "pyyaml",
+    "requests",
+    "litellm>=1.80.7",
+    "toml",
+    "aiofiles>=25.1.0",
+    "typer>=0.9.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["artreactor"]
+
+[project.scripts]
+arte = "artreactor.cli.main:app"
+
+[dependency-groups]
+dev = [
+    "pytest-asyncio>=1.3.0",
+    "ruff>=0.1.0",
+    "pyinstaller>=6.1.0",
+]
+
+[tool.ruff]
+exclude = ["artreactor/plugins/templates"]
+
+[tool.ruff.lint.per-file-ignores]
+"scripts/*.py" = ["E402"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+

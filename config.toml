@@ -1,0 +1,11 @@
+[plugins]
+
+
+[logging]
+level = "INFO"
+enabled = true
+providers = ["console"]
+
+
+[ui]
+default_route = "/docs"

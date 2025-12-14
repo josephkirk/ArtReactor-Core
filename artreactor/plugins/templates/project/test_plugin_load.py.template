@@ -1,0 +1,47 @@
+"""Test that the plugin can be loaded successfully."""
+import pytest
+from pathlib import Path
+from artreactor.core.managers.plugin_manager import PluginManager
+
+
+def test_plugin_loads():
+    """Verify that the plugin loads without errors."""
+    # Get the plugin directory (assumes test runs from repo root)
+    plugin_dir = Path(__file__).parent.parent / "plugins"
+    
+    # Initialize plugin manager with this directory
+    manager = PluginManager(plugin_dir=plugin_dir)
+    
+    # Discover plugins
+    manager.discover_plugins()
+    
+    # Check that our plugin was discovered
+    assert "{{plugin_name}}" in manager.manifests, f"Plugin {{plugin_name}} not found in discovered plugins"
+    
+    # Verify manifest properties
+    manifest = manager.manifests["{{plugin_name}}"]
+    assert manifest.name == "{{plugin_name}}"
+    assert manifest.type == "{{type}}"
+
+
+@pytest.mark.asyncio
+async def test_plugin_initializes():
+    """Verify that the plugin can be initialized."""
+    plugin_dir = Path(__file__).parent.parent / "plugins"
+    manager = PluginManager(plugin_dir=plugin_dir)
+    
+    try:
+        manager.discover_plugins()
+        await manager.load_plugins()
+        
+        # Check that our plugin was loaded
+        assert "{{plugin_name}}" in manager.plugins, f"Plugin {{plugin_name}} not loaded"
+        
+        # Verify plugin instance
+        plugin = manager.plugins["{{plugin_name}}"]
+        assert plugin is not None
+        assert plugin.manifest.name == "{{plugin_name}}"
+    finally:
+        # Cleanup: shutdown plugins if the manager supports it
+        if hasattr(manager, "shutdown_all"):
+            await manager.shutdown_all()

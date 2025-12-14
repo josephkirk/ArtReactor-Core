@@ -1,0 +1,47 @@
+name: Lint
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "pyproject.toml"
+      - "**/*.toml"
+  pull_request:
+    branches: [ "main", "develop" ]
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "pyproject.toml"
+      - "**/*.toml"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          
+      - name: Install Ruff
+        run: pip install ruff
+        
+      - name: Run Ruff Check and Fix
+        run: ruff check src tests --fix
+        
+      - name: Run Ruff Format
+        run: ruff format src tests
+        
+      - name: Commit fixes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "style: auto-fix linting issues"
+          branch: ${{ github.head_ref }}

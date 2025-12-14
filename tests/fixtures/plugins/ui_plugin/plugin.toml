@@ -1,0 +1,6 @@
+name = "ui-test-plugin"
+version = "0.1.0"
+type = "ui"
+
+[config]
+static_dir = "dist"

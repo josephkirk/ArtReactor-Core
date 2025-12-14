@@ -1,0 +1,63 @@
+# {{name}}
+
+{{description}}
+
+## Installation
+
+This plugin can be installed into an ArtReactor host project using:
+
+```bash
+# From local path (development)
+arte plugin install /path/to/{{name}} --link
+
+# From git repository
+arte plugin install https://github.com/yourusername/{{name}}.git
+```
+
+## Development
+
+### Setup
+
+```bash
+# Install dependencies
+pip install -e .
+
+# Or using uv
+uv pip install -e .
+```
+
+### Testing
+
+```bash
+# Run tests
+pytest
+
+# Or using uv
+uv run pytest
+```
+
+### Plugin Structure
+
+```
+{{name}}/
+├── plugins/
+│   └── {{plugin_name}}/
+│       ├── plugin.toml      # Plugin manifest
+│       ├── __init__.py       # Plugin implementation
+│       └── SKILL.md          # Agent skill documentation (if applicable)
+├── tests/
+│   └── test_plugin_load.py  # Basic plugin loading test
+├── pyproject.toml            # Project dependencies
+├── README.md                 # This file
+└── .gitignore
+```
+
+## Usage
+
+After installation, the plugin will be automatically discovered and loaded by the ArtReactor host.
+
+Check `plugins/{{plugin_name}}/plugin.toml` for plugin configuration options.
+
+## Plugin Type: {{type}}
+
+{{type_description}}
