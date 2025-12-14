@@ -1,6 +1,6 @@
 # ArtReactor
-[![Build & Test](https://github.com/josephkirk/ArtReactorCore/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/josephkirk/ArtReactorCore/actions/workflows/ci.yml)
-[![Lint](https://github.com/josephkirk/ArtReactorCore/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/josephkirk/ArtReactorCore/actions/workflows/lint.yml)
+[![Build & Test](https://github.com/josephkirk/ArtReactor-Core/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/josephkirk/ArtReactor-Core/actions/workflows/ci.yml)
+[![Lint](https://github.com/josephkirk/ArtReactor-Core/ actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/josephkirk/ArtReactor-Core/actions/workflows/lint.yml)
 
 ## Purpose
 ArtReactor Core is the backbone framework for the Game Asset Pipeline, designed to be extensible and modular. Its primary goal is to allow developers to "write once and expose" functionality for other tools to use, enforced with strict security controls. It facilitates communication between different software and treats Agentic AI as a first-class citizen, enabling complex, cross-application workflows.
